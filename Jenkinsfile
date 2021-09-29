@@ -7,24 +7,23 @@ pipeline{
 	
 	stages(
 
-	 stages('build'){
+	 stage('build'){
 	  steps{
 	    sh 'mvn compile'
 	  }
 	}
-	stages(
 
-         stages('test'){
+         stage('test'){
           steps{
             sh 'mvn clean test'
           }
         }
-	stages(
 
-         stages('package'){
+         stage('package'){
           steps{
             sh 'package -DskipTests'
           }
 	 }
+        }
 }
 
